@@ -632,7 +632,7 @@ if test x"$TEXI2PDF" != xtexi2pdf && test x"$TEXI2DVI" = xtexi2dvi; then
 fi
 
 if test x"$TEXI2HTML" = xtexi2any; then
-  TEXI2HTML='texi2any -c TEXI2HTML=1'
+  TEXI2HTML='texi2any --html'
 fi
 
 case "$LC_PAPER" in

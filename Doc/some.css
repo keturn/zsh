@@ -1,0 +1,142 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap'); */
+
+@layer base, syntax;
+@import "a11y-syntax.css" layer(syntax);
+
+@layer base {
+  :root {
+    --heading-power: 1.125;
+    --h4-size: 1.4rem;
+    color-scheme: light dark;
+  }
+
+  a:any-link {
+    text-decoration-color: oklch(from currentcolor l c h / 0.5);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      background-color: black;
+      --text-lightness: 0.8;
+      color: oklch(var(--text-lightness) 0 0);
+    }
+
+    a:link {
+      color: oklch(from LinkText var(--text-lightness) c h);
+    }
+
+    a:visited {
+      color: oklch(from VisitedText var(--text-lightness) c h);
+    }
+  }
+
+
+  body {
+    max-width: 55em;
+    text-align: justify;
+    margin-inline: auto;
+    padding-inline: 4px;
+  }
+  
+  @media (width < 28em ) {
+    body {
+      hyphens: auto;
+    }
+  }
+
+  h1, h2, h3, h4 {
+    font-family: sans-serif;
+    border-bottom: solid;
+  }
+
+  h4 {
+    font-size: var(--h4-size);
+    border-bottom-width: thin;
+  }
+
+  h3 {
+    font-size: calc(var(--h4-size) * pow(var(--heading-power), 2));
+  }
+
+  h2 {
+    font-size: calc(var(--h4-size) * pow(var(--heading-power), 3));
+  }
+
+  h1 {
+    font-size: calc(var(--h4-size) * pow(var(--heading-power), 4));
+  }
+
+  :where(.contents ul) {
+    font-weight: bold;
+
+    :where(ul) { font-weight: normal; }
+  }
+
+  .index-letters-header-printindex {
+    position: sticky;
+    top: 0;
+  }
+
+  dl dt {
+    font-size: 1.2em;
+  }
+
+  var {
+    font-family: monospace;
+  }
+
+  .nav-panel {
+    font-family: ui-sans-serif, sans-serif;
+    text-align: initial;
+
+    /* Using flexbox to right-align some buttons. */
+    display: block flex;
+    justify-content: space-between;
+    
+    .nav-button.nav-delimited:has(+.nav-delimited)::after {
+      content: ", ";
+    }
+
+    .nav-group:last-child {
+      flex: auto;
+      margin-left: auto;
+      text-align: right;
+      justify-content: end;
+    }
+    
+    .nav-group {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0.2em;
+      align-content: flex-start;
+    }
+    
+    .nav-button {
+      text-indent: 2ch hanging;
+    }
+  }
+  
+  .mini-toc {
+    background: light-dark(oklch(0.95 0.05 260), oklch(0.2 0 260));
+    margin-inline: 2em;
+    padding-block: 1lh;
+    text-align: initial;
+    
+    list-style-type: "‣ ";
+  }
+  
+  /* .mini-toc {
+    list-style-type: "├─ ";
+    line-height: 1.2;
+  }
+  .mini-toc li:last-of-type {
+    list-style-type: "└─ ";
+  }  */
+
+  footer {
+    font-size: small;
+  }
+}

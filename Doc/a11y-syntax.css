@@ -1,0 +1,129 @@
+/* Distilled from https://github.com/Quansight-Labs/accessible-pygments */
+
+@scope (.example-preformatted) {
+  pre {
+    line-height: 125%;
+  }
+  .ge { font-style: italic }
+  .gs { font-weight: bold }
+}
+
+@media (prefers-color-scheme: dark) {
+  @scope(.example-preformatted) {
+    .c, .ch, .cm, .cp, .cpf, .c1, .cs {
+      color: #d4d0ab; /* Comment */
+    }
+
+    .k, .kc, .kd, kn, .kp, .kr, .ow {
+      color: #dcc6e0; /* Keyword */
+    }
+
+    .n, .nn, .nx {
+      color: #f8f8f2; /* Name */
+    }
+
+    .na, .nb, .nd, .ni, .nl, .vm, .bp {
+      color: #f5ab35; /* Name.Builtin */
+    }
+
+    .l, .ld, .m, .mb, .mf, .mh, .mi, .mo, .il {
+      color: #f5ab35; /* Literal */
+    }
+
+    .err {
+      color: #ffa07a
+    }
+
+    .p, .pm, .w {
+      color: #f8f8f2; /* Punctuation */
+    }
+
+    .gd {
+      color: #00e0e0; /* Generic.Deleted */
+    }
+
+    .gh, .gu {
+      color: #00e0e0; /* Generic.Heading */
+    }
+
+    .o {
+      color: #abe338; /* Operator */
+    }
+
+    .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .ss, .sx, .s1 {
+      color: #abe338; /* Literal.String */
+    }
+
+    .sr {
+      color: #ffa07a; /* Literal.String.Regex */
+    }
+
+    .nv, .vc, .vg, .vi {
+      color: #ffa07a; /* Name.Variable */
+    }
+
+    .nc, .ne, .no, .py, .nt, .nf, .fm {
+      color: #00e0e0; /* Name.Class */
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  @scope(.example-preformatted) {
+    .c, .ch, .cm, .cp, .cpf, .c1, .cs {
+      color: #515151; /* Comment */
+    }
+
+    .k, .kc, .kd, kn, .kp, .kr, .ow {
+      color: #8045e5; /* Keyword */
+    }
+
+    .n, .nn, .nx {
+      color: #1e1e1e; /* Name */
+    }
+
+    .na, .nb, .nd, .ni, .nl, .vm, .bp {
+      color: #7f4707; /* Name.Builtin */
+    }
+
+    .l, .ld, .m, .mb, .mf, .mh, .mi, .mo, .il {
+      color: #7f4707; /* Literal */
+    }
+
+    .err {
+      color: #d71835;
+    }
+
+    .p, .pm, .w {
+      color: #1e1e1e; /* Punctuation */
+    }
+
+    .gd {
+      color: #00749c; /* Generic.Deleted */
+    }
+
+    .gh, .gu {
+      color: #00749c; /* Generic.Heading */
+    }
+
+    .o {
+      color: #116633; /* Operator */
+    }
+
+    .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .ss, .sx, .s1 {
+      color: #116633; /* Literal.String */
+    }
+
+    .sr {
+      color: #d71835; /* Literal.String.Regex */
+    }
+
+    .nv, .vc, .vg, .vi {
+      color: #d71835; /* Name.Variable */
+    }
+
+    .nc, .ne, .no, .py, .nt, .nf, .fm {
+      color: #00749c; /* Name.Class */
+    }
+  }
+}

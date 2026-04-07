@@ -11,7 +11,6 @@ DISTFILES_SRC='
 DISTFILES_DOC='
     zsh.info zsh.info-[0-9]*
     *.html
-    zsh.dvi
-    zsh.pdf
-    intro.a4.pdf intro.us.pdf
+    *.css
+    icon*.*
 '

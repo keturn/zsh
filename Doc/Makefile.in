@@ -90,8 +90,9 @@ Zsh/seealso.yo Zsh/tcpsys.yo Zsh/zftpsys.yo Zsh/zle.yo
 all: man $(runhelp) texi ../META-FAQ
 .PHONY: all
 
-everything: all html info zsh_a4.dvi zsh_us.dvi zsh_a4.pdf zsh_us.pdf \
-            intro.a4.pdf intro.us.pdf
+#everything: all html info zsh_a4.dvi zsh_us.dvi zsh_a4.pdf zsh_us.pdf \
+#            intro.a4.pdf intro.us.pdf
+everything: all html info
 .PHONY: everything
 
 dvi: zsh.dvi
@@ -173,9 +174,9 @@ zsh_a4.ps: zsh_a4.dvi
 html: zsh_toc.html
 .PHONY: html
 
-zsh_toc.html: $(sdir)/zsh.texi texi2html.conf
-	$(TEXI2HTML) --output . --ifinfo --split=chapter --node-files \
-	             --init-file texi2html.conf $(sdir)/zsh.texi
+zsh_toc.html: $(sdir)/zsh.texi texi2html.conf docset.pm
+	$(TEXI2HTML) --output . --ifinfo \
+	             --css-ref=some.css --init-file docset.pm --init-file texi2html.conf $(sdir)/zsh.texi
 
 zshall.1: zsh.yo
 	case $@ in \
@@ -266,7 +267,7 @@ texi2html.conf: $(sdir_top)/Config/version.mk
 	d=`echo $(VERSION_DATE)`; \
 	v="<font size=\"-1\">Zsh version $(VERSION), released on $$d.</font>"; \
 	case '$(TEXI2HTML)' in \
-	  *texi2any*) echo "set_from_init_file('PRE_BODY_CLOSE','$$v');" ;; \
+	  *texi2any*) echo "texinfo_set_from_init_file('PRE_BODY_CLOSE','$$v');" ;; \
 	  *) echo "\$$PRE_BODY_CLOSE = '$$v';" ;; \
 	esac > $@
 
