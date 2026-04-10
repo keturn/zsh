@@ -174,9 +174,10 @@ zsh_a4.ps: zsh_a4.dvi
 html: zsh_toc.html
 .PHONY: html
 
-zsh_toc.html: $(sdir)/zsh.texi texi2html.conf docset.pm
-	$(TEXI2HTML) --output . --ifinfo \
-	             --css-ref=some.css --init-file docset.pm --init-file texi2html.conf $(sdir)/zsh.texi
+zsh_toc.html: export VERSION:=$(VERSION)
+zsh_toc.html: export VERSION_DATE:=$(VERSION_DATE)
+zsh_toc.html: $(sdir)/zsh.texi docset.pm
+	$(TEXI2HTML) --output . --ifinfo --css-ref=some.css --init-file docset.pm $(sdir)/zsh.texi
 
 zshall.1: zsh.yo
 	case $@ in \

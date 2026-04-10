@@ -1,6 +1,10 @@
 use strict;
 use warnings;
 
+package Texinfo::Config;
+
+use Text::ParseWords 'parse_line';
+
 # HIGHLIGHT_SYNTAX=pygments isn't working for unknown reasons, so supply full pygmentize command line.
 # `nowrap` because texi2any already has them in a `pre` element.
 texinfo_set_from_init_file('HIGHLIGHT_SYNTAX', 'pygmentize -l %l -f html -O nowrap=true');
@@ -28,7 +32,32 @@ texinfo_set_from_init_file('NODE_FILES', "True");
 # browsers like having the language set for accessibility and hyphenation.
 texinfo_set_from_init_file('documentlanguage', 'en');
 
-sub my_format_navigation_panel {
+if (!defined $ENV{VERSION_DATE} or !defined $ENV{VERSION}) {
+  die 'Expected VERSION and VERSION_DATE environment variables. Try sourcing Config/version.mk.';
+}
+my $version_date = $ENV{VERSION_DATE};
+# It's quoted? I guess that's the reason for the Makefile's d=`echo $d`.
+$version_date = join(" ", parse_line('\s+', 0, $version_date)) if $version_date =~ /^'/;
+texinfo_set_from_init_file('PRE_BODY_CLOSE',
+  "<footer>Zsh version $ENV{VERSION}, released on $version_date.</footer>");
+
+
+=pod
+grouped_navigation_panel formats the panel as:
+ <nav-panel>
+   <nav-group>
+     <nav-button>next
+     <nav-button>previous
+     <nav-buton>up
+   <nav-group>
+     <nav-button>contents
+     <nav-button>index
+
+The implementation closely follows the _default_format_navigation_panel and it might not be worth
+thinking about perl this much for such a minor formatting change but here we are.
+=cut
+
+sub grouped_navigation_panel {
   my ($self, $buttons, $cmdname, $source_command, $vertical, $in_header) = @_;
   return '' if ref($buttons) ne 'ARRAY';
   my $format_button = $self->formatting_function('format_button');
@@ -63,4 +92,4 @@ sub my_format_navigation_panel {
   return '' unless $result;
   return $self->html_attribute_class('div', ['nav-panel']) . qq{>$result</div>\n};
 };
-texinfo_register_formatting_function('format_navigation_panel', \&my_format_navigation_panel);
+texinfo_register_formatting_function('format_navigation_panel', \&grouped_navigation_panel);
