@@ -3,12 +3,24 @@ def(printindex)(2)(\
   texipage()NL()\
   NOTRANS(@unnumbered) ARG1+NL()\
   NL()\
+texiifinfo(NOTRANS(@html
+<div class="nav-indicies-overview">
+@end html)+NL()
+This manual has multiple indices:
+startitemize()
+list(NOTRANS(@link{Concept Index, Concepts}))
+list(NOTRANS(@link{Variables Index, Variables}))
+list(NOTRANS(@link{Options Index, Options}))
+list(NOTRANS(@link{Functions Index, Functions}))
+list(NOTRANS(@link{Editor Functions Index, Editor Functions}))
+list(NOTRANS(@link{Style and Tag Index, Styles and Tags}))
+enditemize()
+NOTRANS(@html
+</div>
+@end html)+NL())
   NOTRANS(@printindex) ARG2\
 )\
-texinode(Concept Index)(Variables Index)(Top)(Top)
-printindex(Concept Index)(cp)
-
-texinode(Variables Index)(Options Index)(Concept Index)(Top)
+texinode(Variables Index)(Options Index)(Top)(Top)
 printindex(Variables Index)(vr)
 
 texinode(Options Index)(Functions Index)(Variables Index)(Top)
@@ -20,6 +32,10 @@ printindex(Functions Index)(fn)
 texinode(Editor Functions Index)(Style and Tag Index)(Functions Index)(Top)
 printindex(Editor Functions Index)(tp)
 
-texinode(Style and Tag Index)()(Editor Functions Index)(Top)
+texinode(Style and Tag Index)(Concept Index)(Editor Functions Index)(Top)
 printindex(Style and Tag Index)(ky)
+
+COMMENT(The last-printed index is the one that gets the spot in the navigation panel.)
+texinode(Concept Index)()(Style and Tag Index)(Top)
+printindex(Concept Index)(cp)
 )\

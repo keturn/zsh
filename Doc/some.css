@@ -110,6 +110,21 @@
     }
   }
   
+  .nav-indicies-overview ul {
+    display: block flex;
+    list-style-position: inside;
+    gap: 1ch;
+    font-family: ui-sans-serif, sans-serif;
+  }
+  
+  th.index-letter-header-printindex {
+    font-size: 2rem;
+  }
+
+  .printindex hr {
+    border-top: none;
+  }
+  
   .mini-toc {
     background: light-dark(oklch(0.95 0.05 260), oklch(0.2 0 260));
     margin-inline: 2em;
