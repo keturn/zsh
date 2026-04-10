@@ -64,10 +64,13 @@ ifnzman(includefile(Zsh/zle.yo))
 ifnzman(includefile(Zsh/compwid.yo))
 ifnzman(includefile(Zsh/compsys.yo))
 ifnzman(includefile(Zsh/compctl.yo))
+ifnzman(part(Zsh Modules))
 ifnzman(includefile(Zsh/modules.yo))
+ifnzman(part(Specialized Systems))
 ifnzman(includefile(Zsh/calsys.yo))
 ifnzman(includefile(Zsh/tcpsys.yo))
 ifnzman(includefile(Zsh/zftpsys.yo))
+ifnzman(part(User Contributions))
 ifnzman(includefile(Zsh/contrib.yo))
 ifzshall(\
 def(source)(1)(NOTRANS(.so )man1/ARG1+NOTRANS(.)1)\
@@ -91,4 +94,5 @@ manpage(ZSHALL)(1)(date())(zsh version())
 )\
 ifzman(includefile(Zsh/filelist.yo))
 ifzman(includefile(Zsh/seealso.yo))
+ifnzman(part(Indicies))
 ifnzman(includefile(Zsh/index.yo))

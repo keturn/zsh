@@ -1,7 +1,6 @@
 texinode(User Contributions)()(Zftp Function System)(Top)
 chapter(User Contributions)
 cindex(user contributions)
-sect(Description)
 
 The Zsh source distribution includes a number of items contributed by the
 user community.  These are not inherently a part of the shell, and some
@@ -22,6 +21,8 @@ menu(Mathematical Functions)
 menu(User Configuration Functions)
 menu(Other Functions)
 endmenu()
+
+NOTRANS(@raisesections)
 
 texinode(Utilities)(Recent Directories)()(User Contributions)
 sect(Utilities)
@@ -4732,3 +4733,5 @@ ifnzman(noderef(Prompt Expansion))\
 ).
 )
 enditem()
+
+NOTRANS(@lowersections)

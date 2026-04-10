@@ -1,7 +1,6 @@
 texinode(Zsh Modules)(Calendar Function System)(Completion Using compctl)(Top)
 chapter(Zsh Modules)
 cindex(modules)
-sect(Description)
 Some optional parts of zsh are in modules, separate from the core
 of the shell.  Each of these modules may be linked in to the
 shell at build time,

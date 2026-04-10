@@ -120,6 +120,12 @@ def(texitop)(1)(\
 
 COMMENT(--- section divisions ---)
 
+def(part)(1)(\
+  NL()\
+  NOTRANS(@part )ARG1+NL()\
+  NOTRANS(@noindent)\
+)
+
 def(chapter)(1)(\
   NL()\
   NOTRANS(@chapter )ARG1+NL()\

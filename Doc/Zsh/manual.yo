@@ -1,5 +1,5 @@
 texiifnottex(\
-texinode(Top)(The Z Shell Manual)((dir))((dir))
+texinode(Top)(The Z Shell Manual)()()
 texitop(The Z Shell Manual)
 )\
 texiifinfo(\
@@ -177,6 +177,7 @@ menu(User Configuration Functions)
 menu(Other Functions)
 
 endmenu()
+part(The Z Shell)
 texinode(The Z Shell Manual)(Introduction)(Top)(Top)
 chapter(The Z Shell Manual)
 This document has been produced from the texinfo file tt(zsh.texi),

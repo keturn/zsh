@@ -283,6 +283,7 @@ Zsh/modlist.yo: $(MODDOCSRC)
 	    done; \
 	    echo "enditem()"; \
 	    echo "includefile(Zsh/modmenu.yo)"; \
+	    echo 'NOTRANS(@raisesections)'; \
 	    set '' $(MODDOCSRC); \
 	    mod1= mod2= mod3=; \
 	    test ".$$2" = . || \
@@ -298,6 +299,7 @@ Zsh/modlist.yo: $(MODDOCSRC)
 		mod1=$$mod2; \
 		mod2=$$mod3; \
 	    done \
+	    echo 'NOTRANS(@lowersections)'; \
 	) > $(sdir)/Zsh/modlist.yo
 
 Zsh/modmenu.yo: $(MODDOCSRC)
